@@ -1,0 +1,61 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: phpmyadmin
+  labels:
+    app: phpmyadmin
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: phpmyadmin
+  template:
+    metadata:
+      name: phpmyadmin
+      labels:
+        app: phpmyadmin
+    spec:
+      containers:
+      - name: phpmyadmin
+        image: tjinichi/phpmyadmin
+        imagePullPolicy: Never
+        # livenessProbe:
+        #   exec:
+        #     command: ["/bin/sh", "-c", "pgrep telegraf && pgrep nginx && pgrep php-fpm"]
+        #   initialDelaySeconds: 10
+        #   periodSeconds: 5
+        ports:
+        - containerPort: 5000
+        # env:
+        #   - name: SERVICE
+        #     value: phpmyadmin
+        #   - name: PMA_USER
+        #     valueFrom:
+        #       secretKeyRef:
+        #         name: ft-secret
+        #         key: db_user
+        #   - name: PMA_PASSWORD
+        #     valueFrom:
+        #       secretKeyRef:
+        #         name: ft-secret
+        #         key: db_pass
+        #   - name: PMA_HOST
+        #     value: mysql
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: phpmyadmin-service
+spec:
+  selector:
+    component: mysql
+  ports:
+  - name: phpmyadmin
+    protocol: TCP
+    port: 5000
+    targetPort: 5000
+#  type: NodePort
+  type: LoadBalancer

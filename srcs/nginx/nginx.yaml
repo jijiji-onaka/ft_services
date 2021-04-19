@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  labels:
+    component: nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: nginx
+  template:
+    metadata:
+      name: nginx-pod
+      labels:
+        component: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: tjinichi/nginx:000
+        imagePullPolicy: Never
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-service
+spec:
+  selector:
+    component: nginx
+  type: LoadBalancer
+  ports:
+  - port: 80
+    name: http
+    protocol: TCP
+    targetPort: 80
+    nodePort: 80
+  - port: 443
+    name: https
+    protocol: TCP
+    targetPort: 443
+    nodePort: 443

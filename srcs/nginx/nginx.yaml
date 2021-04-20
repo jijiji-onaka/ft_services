@@ -19,6 +19,7 @@ spec:
       - name: nginx
         image: tjinichi/nginx:000
         imagePullPolicy: Never
+
 ---
 
 apiVersion: v1
@@ -34,9 +35,7 @@ spec:
     name: http
     protocol: TCP
     targetPort: 80
-    nodePort: 80
   - port: 443
     name: https
     protocol: TCP
     targetPort: 443
-    nodePort: 443

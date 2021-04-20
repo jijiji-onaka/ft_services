@@ -8,14 +8,15 @@
 
 # minikube stop
 # sudo minikube start --vm-driver=none --extra-config=apiserver.service-node-port-range=1-65535
-minikube start
+
+
+# minikube start driver=virtualbox
 
 # metalLBの起動
 kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.3/manifests/namespace.yaml
 kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.3/manifests/metallb.yaml
 kubectl create secret generic -n metallb-system memberlist --from-literal=secretkey="$(openssl rand -base64 128)"
 kubectl apply -f ./srcs/metallb-system.yaml
-
 
 eval $(minikube docker-env)
 docker build -t tjinichi/nginx:000 ./srcs/nginx

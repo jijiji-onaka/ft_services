@@ -50,6 +50,8 @@ metadata:
   name: phpmyadmin
   annotations:
     metallb.universe.tf/allow-shared-ip: ft_services
+  labels:
+    component: phpmyadmin
 spec:
   selector:
     component: phpmyadmin
@@ -59,4 +61,3 @@ spec:
     protocol: TCP
     port: 5000
     targetPort: 5000
-#  type: NodePort

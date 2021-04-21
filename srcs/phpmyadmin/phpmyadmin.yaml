@@ -25,7 +25,10 @@ spec:
         #   initialDelaySeconds: 10
         #   periodSeconds: 5
         ports:
-        - containerPort: 5000
+        - name: http
+          containerPort: 80
+        - name: https
+          containerPort: 443
         # env:
         #   - name: SERVICE
         #     value: phpmyadmin
@@ -60,4 +63,4 @@ spec:
   - name: https
     protocol: TCP
     port: 5000
-    targetPort: 5000
+    targetPort: 443

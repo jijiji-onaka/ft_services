@@ -7,7 +7,7 @@
 # 	-e s/'group = nobody'/'group = nginx'/g \
 # 	/etc/php7/php-fpm.d/www.conf
 
-/usr/sbin/php-fpm7
-/usr/sbin/nginx
+php-fpm7
+nginx
 
 sleep infinity

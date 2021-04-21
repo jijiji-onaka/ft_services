@@ -10,7 +10,7 @@
 # sudo minikube start --vm-driver=none --extra-config=apiserver.service-node-port-range=1-65535
 
 
-minikube start driver=virtualbox
+minikube start driver=docker
 
 # metalLBの起動
 kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.3/manifests/namespace.yaml

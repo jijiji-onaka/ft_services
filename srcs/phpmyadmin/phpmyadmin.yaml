@@ -19,31 +19,11 @@ spec:
       - name: phpmyadmin
         image: tjinichi/phpmyadmin:000
         imagePullPolicy: Never
-        # livenessProbe:
-        #   exec:
-        #     command: ["/bin/sh", "-c", "pgrep telegraf && pgrep nginx && pgrep php-fpm"]
-        #   initialDelaySeconds: 10
-        #   periodSeconds: 5
         ports:
         - name: http
           containerPort: 80
         - name: https
           containerPort: 443
-        # env:
-        #   - name: SERVICE
-        #     value: phpmyadmin
-        #   - name: PMA_USER
-        #     valueFrom:
-        #       secretKeyRef:
-        #         name: ft-secret
-        #         key: db_user
-        #   - name: PMA_PASSWORD
-        #     valueFrom:
-        #       secretKeyRef:
-        #         name: ft-secret
-        #         key: db_pass
-        #   - name: PMA_HOST
-        #     value: mysql
 
 ---
 

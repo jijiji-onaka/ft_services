@@ -34,15 +34,11 @@ metadata:
   annotations:
     metallb.universe.tf/allow-shared-ip: ft_services
 spec:
+  type: LoadBalancer
   selector:
     component: nginx
-  type: LoadBalancer
   ports:
-  - port: 80
-    name: http
-    protocol: TCP
-    targetPort: 80
-  - port: 443
-    name: https
-    protocol: TCP
-    targetPort: 443
+  - name: http
+    port: 80
+  - name: https
+    port: 443

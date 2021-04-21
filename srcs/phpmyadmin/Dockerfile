@@ -16,17 +16,6 @@ COPY ./srcs/index.html /var/www/localhost/htdocs/index.html
 
 ##############################
 
-# # openrc #
-# RUN mkdir /run/openrc/
-# RUN touch /run/openrc/softlevel
-# RUN rc-update add nginx
-
-# # php #
-# RUN rc-update add php-fpm7
-# RUN rc-status
-# COPY ./srcs/index.php /var/www/localhost/htdocs/index.php
-# RUN rc-service php-fpm7 start
-
 ########### phpmyadmin ############
 
 RUN cd /tmp \
@@ -34,6 +23,7 @@ RUN cd /tmp \
 && tar xvf phpMyAdmin-5.0.2-all-languages.tar.gz \
 && mv phpMyAdmin-5.0.2-all-languages /var/www/localhost/htdocs/phpmyadmin \
 && chown -R nginx:nginx /var/www/localhost/htdocs/phpmyadmin/
+COPY srcs/config.inc.php /etc/phpmyadmin/config.inc.php
 
 ###################################
 
@@ -43,16 +33,6 @@ RUN mkdir -p /run/php
 COPY srcs/php-fpm.conf /etc/php7/php-fpm.d/www.conf
 
 #################################
-
-
-#phpmyadminのインストール
-# RUN cd /tmp \
-# && wget https://files.phpmyadmin.net/phpMyAdmin/5.0.2/phpMyAdmin-5.0.2-all-languages.tar.gz \
-# && tar xvf phpMyAdmin-5.0.2-all-languages.tar.gz \
-# && mv phpMyAdmin-5.0.2-all-languages /var/www/localhost/htdocs/phpmyadmin
-
-# RUN mv /var/www/localhost/htdocs/phpmyadmin/config.sample.inc.php /var/www/localhost/htdocs/phpmyadmin/config.inc.php
-# RUN sed -i -e 's/localhost/mysql_test/g' /var/www/localhost/htdocs/phpmyadmin/config.inc.php
 
 #telegrafのインストール
 # RUN echo "https://dl-cdn.alpinelinux.org/alpine/edge/community/" >> /etc/apk/repositories

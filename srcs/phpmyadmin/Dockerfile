@@ -4,32 +4,52 @@ RUN apk update \
 && apk add nginx wget openssl openrc php7-fpm php7-mysqli php7-mbstring php7-json php7-session \
 supervisor mysql mysql-client --no-cache
 
-# nginx #
+########### nginx ############
+
 RUN mkdir -p /run/nginx
-## 証明書 ##
 RUN mkdir /etc/nginx/ssl \
 && openssl genrsa -out /etc/nginx/ssl/server.key 2048 \
 && openssl req -new -key /etc/nginx/ssl/server.key -out /etc/nginx/ssl/server.csr -subj "/C=JP/ST=Tokyo/L=/O=/OU=/CN=nginx-service" \
 && openssl x509 -days 3650 -req -signkey /etc/nginx/ssl/server.key -in /etc/nginx/ssl/server.csr -out /etc/nginx/ssl/server.crt
-
 COPY ./srcs/default.conf /etc/nginx/conf.d/default.conf
+COPY ./srcs/index.html /var/www/localhost/htdocs/index.html
 
-# openrc #
-RUN mkdir /run/openrc/
-RUN touch /run/openrc/softlevel
-RUN rc-update add nginx
+##############################
 
-# php #
-RUN rc-update add php-fpm7
-RUN rc-status
+# # openrc #
+# RUN mkdir /run/openrc/
+# RUN touch /run/openrc/softlevel
+# RUN rc-update add nginx
+
+# # php #
+# RUN rc-update add php-fpm7
+# RUN rc-status
 # COPY ./srcs/index.php /var/www/localhost/htdocs/index.php
 # RUN rc-service php-fpm7 start
 
-#phpmyadminのインストール
+########### phpmyadmin ############
+
 RUN cd /tmp \
 && wget https://files.phpmyadmin.net/phpMyAdmin/5.0.2/phpMyAdmin-5.0.2-all-languages.tar.gz \
 && tar xvf phpMyAdmin-5.0.2-all-languages.tar.gz \
-&& mv phpMyAdmin-5.0.2-all-languages /var/www/localhost/htdocs/phpmyadmin
+&& mv phpMyAdmin-5.0.2-all-languages /var/www/localhost/htdocs/phpmyadmin \
+&& chown -R nginx:nginx /var/www/localhost/htdocs/phpmyadmin/
+
+###################################
+
+########### php7-fpm ############
+
+RUN mkdir -p /run/php
+COPY srcs/php-fpm.conf /etc/php7/php-fpm.d/www.conf
+
+#################################
+
+
+#phpmyadminのインストール
+# RUN cd /tmp \
+# && wget https://files.phpmyadmin.net/phpMyAdmin/5.0.2/phpMyAdmin-5.0.2-all-languages.tar.gz \
+# && tar xvf phpMyAdmin-5.0.2-all-languages.tar.gz \
+# && mv phpMyAdmin-5.0.2-all-languages /var/www/localhost/htdocs/phpmyadmin
 
 # RUN mv /var/www/localhost/htdocs/phpmyadmin/config.sample.inc.php /var/www/localhost/htdocs/phpmyadmin/config.inc.php
 # RUN sed -i -e 's/localhost/mysql_test/g' /var/www/localhost/htdocs/phpmyadmin/config.inc.php
@@ -43,9 +63,11 @@ RUN cd /tmp \
 # RUN sed -i -e 's/hostname = ""/hostname = "phpmyadmin"/g' /etc/telegraf.conf
 # RUN sed -i -e 's/# urls = \["http:\/\/127.0.0.1:8086"\]/urls = \["http:\/\/influxdb_test:8086"\]/g' /etc/telegraf.conf
 
-#サービスの起動
-COPY ./srcs/supervisord.conf /etc/
-CMD /usr/bin/supervisord
+COPY srcs/init.sh /
+
+EXPOSE 5000
+
+ENTRYPOINT ["/init.sh"]
 
 #テストコマンド
 #docker build -t phpmyadmin:000 .

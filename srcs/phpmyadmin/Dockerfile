@@ -1,8 +1,8 @@
 FROM alpine:3.12
 
 RUN apk update \
-&& apk add nginx wget openssl openrc php7-fpm php7-mysqli php7-mbstring php7-json php7-session \
-supervisor mysql mysql-client --no-cache
+&& apk add nginx wget openssl php7 php7-fpm php7-mysqli php7-mbstring php7-json php7-session \
+mysql mysql-client --no-cache
 
 ########### nginx ############
 
@@ -48,37 +48,3 @@ COPY srcs/init.sh /
 EXPOSE 5000
 
 ENTRYPOINT ["/init.sh"]
-
-#テストコマンド
-#docker build -t phpmyadmin:000 .
-#docker run -it --name phpmyadmin_test -p 5000:80 --network wordpress-network phpmyadmin:000 /bin/sh
-#docker run -d  --name phpmyadmin_test -p 5000:80 --network wordpress-network phpmyadmin:000
-#docker ps
-#docker exec -it phpmyadmin_test sh
-#docker container stop phpmyadmin_test
-#docker container rm phpmyadmin_test
-
-#後処理
-#docker container prune
-
-#mysql -u root
-#$ SELECT User, Host FROM mysql.user;
-#mysql -h 127.0.0.1 -P 33060 -u mysql -pmysql
-#mysql -h 127.0.0.1 -P 3306 -u mysql -pmysql
-
-#wget -S --no-check-certificate http://127.0.0.1/ -O -
-#wget -S --no-check-certificate http://127.0.0.1/index.php -O -
-#wget -S --no-check-certificate http://127.0.0.1/phpmyadmin/ -O -
-#wget -S --no-check-certificate http://127.0.0.1:5000/index.html -O -
-#wget -S --no-check-certificate http://127.0.0.1:5000/index.php -O -
-#wget -S --no-check-certificate http://127.0.0.1:5000/phpmyadmin/ -O -
-
-#ブラウザによる動作確認
-#http://127.0.0.1:5000/
-#http://127.0.0.1:5000/phpmyadmin/server_databases.php?server=1
-
-#<none>のイメージを削除
-#docker rmi $(docker images -f "dangling=true" -q)
-
-#待受ポート確認
-#netstat -lpn

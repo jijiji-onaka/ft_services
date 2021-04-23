@@ -32,31 +32,31 @@ spec:
       - name: mysql
         image: tjinichi/mysql:000
         imagePullPolicy: Never
-      ports:
-        - containerPort: 3306
-      env:
-        - name: MYSQL_DATABASE
-          valueFrom:
-            secretKeyRef:
-              name: secret
-              key: wpdb
-        - name: MYSQL_USER
-          valueFrom:
-            secretKeyRef:
-              name: secret
-              key: admin
-        - name: MYSQL_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: secret
-              key: asmin
-        volumeMounts:
-        - mountPath: /var/lib/mysql
-          name: mysql-claim-volume
-      volumes:
-      - name: mysql-claim-volume
-        persistentVolumeClaim:
-          claimName: mysql-pvc
+        ports:
+          - containerPort: 3306
+        env:
+          - name: MYSQL_DATABASE
+            valueFrom:
+              secretKeyRef:
+                name: secret
+                key: wpdb
+          - name: MYSQL_USER
+            valueFrom:
+              secretKeyRef:
+                name: secret
+                key: admin
+          - name: MYSQL_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: secret
+                key: asmin
+          volumeMounts:
+          - mountPath: /var/lib/mysql
+            name: mysql-claim-volume
+        volumes:
+        - name: mysql-claim-volume
+          persistentVolumeClaim:
+            claimName: mysql-pvc
 
 ---
 

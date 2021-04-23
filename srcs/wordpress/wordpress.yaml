@@ -9,7 +9,7 @@ spec:
       component: wordpress
   template:
     metadata:
-      name: phpmyadmin
+      name: wordpress
       labels:
         component: wordpress
     spec:

@@ -24,7 +24,7 @@ spec:
       component: mysql
   template:
     metadata:
-      name: mysql-pod
+      name: mysql
       labels:
         component: mysql
     spec:

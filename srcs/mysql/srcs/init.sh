@@ -15,6 +15,6 @@ GRANT ALL PRIVILEGES ON wpdb.* TO 'admin'@'%';
 FLUSH PRIVILEGES;
 EOF
 
-/usr/bin/mysqld --user=root --bootstrap --verbose=0 < /tmp/create_table.sql
+/usr/bin/mysqld --user=root --bootstrap < /tmp/create_table.sql
 
 exec /usr/bin/mysqld --user=root --console

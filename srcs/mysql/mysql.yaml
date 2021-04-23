@@ -50,10 +50,10 @@ spec:
               secretKeyRef:
                 name: secret
                 key: asmin
-          volumeMounts:
+        volumeMounts:
           - mountPath: /var/lib/mysql
             name: mysql-claim-volume
-        volumes:
+      volumes:
         - name: mysql-claim-volume
           persistentVolumeClaim:
             claimName: mysql-pvc

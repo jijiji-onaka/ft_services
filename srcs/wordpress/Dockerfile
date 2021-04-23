@@ -25,6 +25,7 @@ RUN cd /tmp \
 && mv wordpress /var/www/localhost/htdocs/wordpress \
 && chown -R nginx:nginx /var/www/localhost/htdocs/wordpress/
 COPY ./srcs/wp-config.php /var/www/localhost/htdocs/wordpress/wp-config.php
+RUN chown -R www:www ./wordpress/wp-config.php
 
 #################################
 

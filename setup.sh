@@ -21,8 +21,12 @@ kubectl apply -f ./srcs/metallb-system.yaml
 eval $(minikube docker-env)
 docker build -t tjinichi/nginx:000 ./srcs/nginx
 kubectl apply -f ./srcs/nginx/nginx.yaml
+docker build -t tjinichi/mysql:000 ./srcs/mysql
+kubectl apply -f ./srcs/mysql/mysql.yaml
 docker build -t tjinichi/phpmyadmin:000 ./srcs/phpmyadmin
 kubectl apply -f ./srcs/phpmyadmin/phpmyadmin.yaml
+docker build -t tjinichi/wordpress:000 ./srcs/wordpress
+kubectl apply -f ./srcs/wordpress/wordpress.yaml
 # kubectl apply -f ./srcs/nginx/nginx-replicaset.yaml
 
 

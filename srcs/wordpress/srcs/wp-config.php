@@ -26,16 +26,16 @@
 
 // ** MySQL 設定 - この情報はホスティング先から入手してください。 ** //
 /** WordPress のためのデータベース名 */
-define( 'DB_NAME', '42tokyo' ); // 変えた
+define( 'DB_NAME', 'wpdb' ); // 変えた
 
 /** MySQL データベースのユーザー名 */
-define( 'DB_USER', 'jijiji' ); // 変えた
+define( 'DB_USER', 'admin' ); // 変えた
 
 /** MySQL データベースのパスワード */
-define( 'DB_PASSWORD', 'abcde' ); // 変えた
+define( 'DB_PASSWORD', 'admin' ); // 変えた
 
 /** MySQL のホスト名 */
-define( 'DB_HOST', 'localhost' );
+define( 'DB_HOST', 'mysql-service:3306' );
 
 /** データベースのテーブルを作成する際のデータベースの文字セット */
 define( 'DB_CHARSET', 'utf8' );

@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: phpmyadmin
+  name: wordpress
 spec:
   replicas: 1
   selector:
     matchLabels:
-      component: phpmyadmin
+      component: wordpress
   template:
     metadata:
       name: phpmyadmin
       labels:
-        component: phpmyadmin
+        component: wordpress
     spec:
       containers:
-      - name: phpmyadmin
-        image: tjinichi/phpmyadmin:000
+      - name: wordpress
+        image: tjinichi/wordpress:000
         imagePullPolicy: Never
         ports:
         - name: http
@@ -28,15 +28,15 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: phpmyadmin
+  name: wordpress
   annotations:
     metallb.universe.tf/allow-shared-ip: ft_services
 spec:
   selector:
-    component: phpmyadmin
+    component: wordpress
   type: LoadBalancer
   ports:
   - name: https
     protocol: TCP
-    port: 5000
+    port: 5050
     targetPort: 443

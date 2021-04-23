@@ -16,24 +16,24 @@ kind: Deployment
 metadata:
   name: mysql
   labels:
-    app: mysql
+    component: mysql
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: mysql
+      component: mysql
   template:
     metadata:
       name: mysql-pod
       labels:
-        app: mysql
+        component: mysql
     spec:
       containers:
       - name: mysql
         image: tjinichi/mysql:000
         imagePullPolicy: Never
         ports:
-          - containerPort: 3306
+        - containerPort: 3306
         env:
           - name: MYSQL_DATABASE
             valueFrom:
@@ -67,6 +67,9 @@ metadata:
 spec:
   type: ClusterIP
   selector:
-    app: mysql
+    component: mysql
   ports:
-    - port: 3306
+  - name: mysql
+    port: 3306
+    targetPort: 3306
+    protocol: TCP

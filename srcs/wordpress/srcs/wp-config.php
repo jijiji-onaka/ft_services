@@ -35,7 +35,7 @@ define( 'DB_USER', 'admin' ); // 変えた
 define( 'DB_PASSWORD', 'admin' ); // 変えた
 
 /** MySQL のホスト名 */
-define( 'DB_HOST', 'mysql-service:3306' );
+define( 'DB_HOST', 'mysql:3306' );
 
 /** データベースのテーブルを作成する際のデータベースの文字セット */
 define( 'DB_CHARSET', 'utf8' );

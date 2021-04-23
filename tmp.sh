@@ -13,20 +13,20 @@
 # minikube start driver=docker
 
 # metalLBの起動
-kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.3/manifests/namespace.yaml
-kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.3/manifests/metallb.yaml
+kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.3/manifests/namespace.yaml > /dev/null
+kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.3/manifests/metallb.yaml > /dev/null
 kubectl create secret generic -n metallb-system memberlist --from-literal=secretkey="$(openssl rand -base64 128)"
-kubectl apply -f ./srcs/metallb-system.yaml
+kubectl apply -f ./srcs/metallb-system.yaml > /dev/null
 
 eval $(minikube docker-env)
-docker build -t tjinichi/nginx:000 ./srcs/nginx
-kubectl apply -f ./srcs/nginx/nginx.yaml
-docker build -t tjinichi/mysql:000 ./srcs/mysql
-kubectl apply -f ./srcs/mysql/mysql.yaml
-docker build -t tjinichi/phpmyadmin:000 ./srcs/phpmyadmin
-kubectl apply -f ./srcs/phpmyadmin/phpmyadmin.yaml
-docker build -t tjinichi/wordpress:000 ./srcs/wordpress
-kubectl apply -f ./srcs/wordpress/wordpress.yaml
+docker build -t tjinichi/nginx:000 ./srcs/nginx > /dev/null
+kubectl apply -f ./srcs/nginx/nginx.yaml > /dev/null
+docker build -t tjinichi/mysql:000 ./srcs/mysql > /dev/null
+kubectl apply -f ./srcs/mysql/mysql.yaml > /dev/null
+docker build -t tjinichi/phpmyadmin:000 ./srcs/phpmyadmin > /dev/null
+kubectl apply -f ./srcs/phpmyadmin/phpmyadmin.yaml > /dev/null
+docker build -t tjinichi/wordpress:000 ./srcs/wordpress > /dev/null
+kubectl apply -f ./srcs/wordpress/wordpress.yaml > /dev/null
 # kubectl apply -f ./srcs/nginx/nginx-replicaset.yaml
 
 

@@ -4,18 +4,17 @@ chown -R mysql:mysql /var/lib/mysql
 
 mysql_install_db --user=root --datadir=/var/lib/mysql
 
+mysql_install_db --user=root > /dev/null
+
 cat > /tmp/create_table.sql << EOF
+USE mysql;
 FLUSH PRIVILEGES;
-CREATE DATABASE IF NOT EXISTS "ft_db";
-CREATE USER IF NOT EXISTS 'jijiji'@'%' IDENTIFIED BY 'abcde';
-GRANT ALL PRIVILEGES ON "ft_db".* TO 'jijiji'@'%';
-CREATE USER IF NOT EXISTS 'jijiji'@'%' IDENTIFIED BY 'abcde';
-GRANT ALL PRIVILEGES ON *.* TO 'jijiji'@'%';
+CREATE DATABASE IF NOT EXISTS wpdb;
+CREATE USER 'admin'@'%' identified by 'admin';
+GRANT ALL PRIVILEGES ON wpdb.* TO 'admin'@'%';
+FLUSH PRIVILEGES;
 EOF
 
-/usr/bin/mysqld --user=root --bootstrap < /tmp/create_table.sql
-rm -f /tmp/create_table.sql
+/usr/bin/mysqld --user=root --bootstrap --verbose=0 < /tmp/create_table.sql
 
-/usr/bin/mysqld_safe --user=root
-
-sleep infinity
+exec /usr/bin/mysqld --user=root --console

@@ -1,7 +1,7 @@
 FROM alpine:3.12
 
-RUN apk update \
-&& apk add mysql mysql-client --no-cache
+RUN apk add --update mysql mysql-client --no-cache \
+&& rm -f /var/cache/apk/*
 
 ########### mysql ############
 
@@ -9,7 +9,7 @@ RUN mkdir -p /var/run/mysqld
 
 ##############################
 
-# COPY srcs/my.cnf /etc/my.cnf
+COPY srcs/my.cnf /etc/my.cnf
 # COPY srcs/start.sh /
 
 # RUN mkdir -p /var/run/mysqld \
@@ -20,8 +20,6 @@ RUN mkdir -p /var/run/mysqld
 
 # COPY srcs/healthcheck.sh /
 # COPY srcs/create_tables.sql /tmp/create_phpmyadmin_tables.sql
-
-
 
 COPY srcs/init.sh /
 

@@ -21,22 +21,6 @@ spec:
         imagePullPolicy: Never
         ports:
         - containerPort: 3306
-        # env:
-        #   - name: MYSQL_DATABASE
-        #     valueFrom:
-        #       secretKeyRef:
-        #         name: ft-secret
-        #         key: wpdb
-        #   - name: MYSQL_USER
-        #     valueFrom:
-        #       secretKeyRef:
-        #         name: ft_secret
-        #         key: admin
-        #   - name: MYSQL_PASSWORD
-        #     valueFrom:
-        #       secretKeyRef:
-        #         name: ft_secret
-        #         key: admin
         volumeMounts:
           - mountPath: /var/lib/mysql
             name: mysql-claim-volume

@@ -17,7 +17,6 @@ declare(strict_types=1);
  * cookie. Needs to be 32 chars long.
  */
 require('/etc/phpmyadmin/config.secret.inc.php');
-// $cfg['blowfish_secret'] =
 
 /**
  * Servers configuration

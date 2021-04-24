@@ -19,6 +19,7 @@ GRANT ALL PRIVILEGES ON *.* TO 'admin'@'%';
 FLUSH PRIVILEGES;
 DROP DATABASE IF EXISTS test;
 EOF
+
 # GRANT ALL PRIVILEGES ON wpdb.* TO 'admin'@'%';
 
 # CREATE USER 'user'@'localhost' IDENTIFIED BY 'your_password';

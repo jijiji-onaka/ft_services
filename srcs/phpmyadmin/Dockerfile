@@ -22,8 +22,10 @@ RUN cd /tmp \
 && wget https://files.phpmyadmin.net/phpMyAdmin/5.0.2/phpMyAdmin-5.0.2-all-languages.tar.gz \
 && tar xvf phpMyAdmin-5.0.2-all-languages.tar.gz \
 && mv phpMyAdmin-5.0.2-all-languages /var/www/localhost/htdocs/phpmyadmin \
-&& chown -R nginx:nginx /var/www/localhost/htdocs/phpmyadmin/
-COPY srcs/config.inc.php /etc/phpmyadmin/config.inc.php
+&& chown -R nginx:nginx /var/www/localhost/htdocs/phpmyadmin/ \
+&& mv /var/www/localhost/htdocs/phpmyadmin/config.sample.inc.php /var/www/localhost/htdocs/phpmyadmin/config.inc.php
+# COPY srcs/config.inc.php /etc/phpmyadmin/config.inc.php
+COPY srcs/config.inc.php /var/www/localhost/htdocs/phpmyadmin/config.inc.php
 
 ###################################
 

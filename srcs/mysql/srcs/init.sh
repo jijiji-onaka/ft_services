@@ -22,8 +22,6 @@ EOF
 /usr/bin/mysqld --user=root --bootstrap < /tmp/create_table.sql
 rm -f /tmp/create_table.sql
 
-# exec /usr/bin/mysqld --user=root --console
-
 /usr/bin/mysqld_safe --user=root
 
 tail -f

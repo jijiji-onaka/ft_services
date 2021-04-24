@@ -25,7 +25,7 @@ RUN cd /tmp \
 && chown -R nginx:nginx /var/www/localhost/htdocs/phpmyadmin/ \
 && mv /var/www/localhost/htdocs/phpmyadmin/config.sample.inc.php /var/www/localhost/htdocs/phpmyadmin/config.inc.php
 # COPY srcs/config.inc.php /etc/phpmyadmin/config.inc.php
-COPY srcs/config.inc.php /var/www/localhost/htdocs/phpmyadmin/config.inc.php
+# COPY srcs/config.inc.php /var/www/localhost/htdocs/phpmyadmin/config.inc.php
 
 ###################################
 

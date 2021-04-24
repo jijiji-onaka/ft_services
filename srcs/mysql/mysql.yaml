@@ -108,3 +108,6 @@ spec:
         imagePullPolicy: Never
         ports:
         - containerPort: 3306
+        volumeMounts:
+          - name: mysql-volume
+            mountPath: /var/lib/mysql

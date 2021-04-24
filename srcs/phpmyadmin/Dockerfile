@@ -15,6 +15,11 @@ RUN mkdir -p /run/nginx && \
     rm phpMyAdmin.tar.gz && \
     sed -i "s@define('CONFIG_DIR'.*@define('CONFIG_DIR', '/etc/phpmyadmin/');@" /var/www/html/libraries/vendor_config.php
 
+RUN mkdir /etc/nginx/ssl \
+&& openssl genrsa -out /etc/nginx/ssl/server.key 2048 \
+&& openssl req -new -key /etc/nginx/ssl/server.key -out /etc/nginx/ssl/server.csr -subj "/C=JP/ST=Tokyo/L=/O=/OU=/CN=nginx-service" \
+&& openssl x509 -days 3650 -req -signkey /etc/nginx/ssl/server.key -in /etc/nginx/ssl/server.csr -out /etc/nginx/ssl/server.crt
+
 COPY srcs/nginx.conf /etc/nginx/conf.d/default.conf
 COPY srcs/php-fpm.conf /etc/php7/php-fpm.d/www.conf
 COPY srcs/config.inc.php /etc/phpmyadmin/config.inc.php

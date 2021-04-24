@@ -37,4 +37,4 @@ EXPOSE 3306
 
 VOLUME [ "/var/lib/mysql" ]
 
-CMD [ "/start.sh" ]
+CMD [ "/init.sh" ]

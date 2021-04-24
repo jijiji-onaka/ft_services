@@ -1,3 +1,3 @@
 #!/bin/bash
 
-curl http://192.1168.49.50
+curl http://192.168.49.50

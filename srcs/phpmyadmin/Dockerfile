@@ -23,7 +23,7 @@ RUN cd /tmp && mkdir /etc/phpmyadmin \
 && tar xvf phpMyAdmin-5.0.2-all-languages.tar.gz \
 && mv phpMyAdmin-5.0.2-all-languages /var/www/localhost/htdocs/phpmyadmin \
 && chown -R nginx:nginx /var/www/localhost/htdocs/phpmyadmin/ /etc/phpmyadmin \
-&& sed -i "s@define('CONFIG_DIR'.*@define('CONFIG_DIR', '/etc/phpmyadmin/');@" /var/www/html/libraries/vendor_config.php
+&& sed -i "s@define('CONFIG_DIR'.*@define('CONFIG_DIR', '/etc/phpmyadmin/');@" /var/www/localhost/htdocs/phpmyadmin/libraries/vendor_config.php
 COPY srcs/config.inc.php /etc/phpmyadmin/config.inc.php
 # COPY srcs/config.inc.php /var/www/localhost/htdocs/phpmyadmin/config.inc.php
 

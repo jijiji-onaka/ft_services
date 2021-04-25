@@ -18,17 +18,17 @@ spec:
         ports:
         - name: ftps
           containerPort: 21
-        - name: ftps_passive_0
+        - name: passive-0
           containerPort: 21000
-        - name: ftps_passive_1
+        - name: passive-1
           containerPort: 21001
-        - name: ftps_passive_2
+        - name: passive-2
           containerPort: 21002
-        - name: ftps_passive_3
+        - name: passive-3
           containerPort: 21003
-        - name: ftps_passive_4
+        - name: passive-4
           containerPort: 21004
-        - name: ftps_passive_5
+        - name: passive-5
           containerPort: 21005
 
 ---
@@ -46,15 +46,15 @@ spec:
   ports:
   - name: ftps
     port: 21
-  - name: ftps-passive-0
+  - name: passive-0
     port: 21000
-  - name: ftps-passive-1
+  - name: passive-1
     port: 21001
-  - name: ftps-passive-2
+  - name: passive-2
     port: 21002
-  - name: ftps-passive-3
+  - name: passive-3
     port: 21003
-  - name: ftps-passive-4
+  - name: passive-4
     port: 21004
-  - name: ftps-passive-5
+  - name: passive-5
     port: 21005

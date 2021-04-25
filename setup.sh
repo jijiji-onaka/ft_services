@@ -23,12 +23,14 @@ docker build -t tjinichi/nginx:000 ./srcs/nginx > /dev/null
 docker build -t tjinichi/mysql:000 ./srcs/mysql > /dev/null
 docker build -t tjinichi/phpmyadmin:000 ./srcs/phpmyadmin > /dev/null
 docker build -t tjinichi/wordpress:000 ./srcs/wordpress > /dev/null
+docker build -t tjinichi/ftps:000 ./srcs/ftps > /dev/null
 
 
 kubectl apply -f ./srcs/nginx/nginx.yaml > /dev/null
 kubectl apply -f ./srcs/mysql/mysql.yaml > /dev/null
 kubectl apply -f ./srcs/phpmyadmin/phpmyadmin.yaml > /dev/null
 kubectl apply -f ./srcs/wordpress/wordpress.yaml
+kubectl apply -f srcs/ftps/ftps.yaml
 # kubectl apply -f ./srcs/nginx/nginx-replicaset.yaml
 
 

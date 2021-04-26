@@ -24,13 +24,16 @@ docker build -t tjinichi/mysql:000 ./srcs/mysql > /dev/null
 docker build -t tjinichi/phpmyadmin:000 ./srcs/phpmyadmin > /dev/null
 docker build -t tjinichi/wordpress:000 ./srcs/wordpress > /dev/null
 docker build -t tjinichi/ftps:000 ./srcs/ftps > /dev/null
-
+docker build -t tjinichi/influxdb:000 ./srcs/influxdb > /dev/null
+docker build -t tjinichi/grafana:000 ./srcs/grafana > /dev/null
 
 kubectl apply -f ./srcs/nginx/nginx.yaml > /dev/null
 kubectl apply -f ./srcs/mysql/mysql.yaml > /dev/null
 kubectl apply -f ./srcs/phpmyadmin/phpmyadmin.yaml > /dev/null
 kubectl apply -f ./srcs/wordpress/wordpress.yaml > /dev/null
 kubectl apply -f srcs/ftps/ftps.yaml
+kubectl apply -f srcs/influxdb/influxdb.yaml
+kubectl apply -f srcs/grafana/grafana.yaml
 # kubectl apply -f ./srcs/nginx/nginx-replicaset.yaml
 
 kubectl get po,svc

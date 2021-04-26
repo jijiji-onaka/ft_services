@@ -1,7 +1,7 @@
 FROM alpine:3.12
 
 RUN echo "https://dl-cdn.alpinelinux.org/alpine/edge/community/" >> /etc/apk/repositories \
-&& mkdir -p /var/run/mysqld && \
+&& mkdir -p /var/run/mysqld \
 && apk add mysql mysql-client telegraf --no-cache
 
 COPY srcs/my.cnf /etc/my.cnf

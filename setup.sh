@@ -19,6 +19,7 @@ kubectl create secret generic -n metallb-system memberlist --from-literal=secret
 kubectl apply -f ./srcs/metallb-system.yaml > /dev/null
 
 eval $(minikube docker-env)
+
 docker build -t tjinichi/nginx:000 ./srcs/nginx > /dev/null
 docker build -t tjinichi/mysql:000 ./srcs/mysql > /dev/null
 docker build -t tjinichi/phpmyadmin:000 ./srcs/phpmyadmin > /dev/null

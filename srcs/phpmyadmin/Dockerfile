@@ -1,8 +1,9 @@
 FROM alpine:3.12
 
-RUN apk update \
+RUN echo "https://dl-cdn.alpinelinux.org/alpine/edge/community/" >> /etc/apk/repositories \
+&& apk update \
 && apk add nginx wget openssl php7 php7-fpm php7-mysqli php7-mbstring php7-json php7-session \
-mysql mysql-client --no-cache
+    mysql mysql-client telegraf --no-cache
 
 ########### nginx ############
 
@@ -36,16 +37,9 @@ COPY srcs/php-fpm.conf /etc/php7/php-fpm.d/www.conf
 
 #################################
 
-#telegrafのインストール
-# RUN echo "https://dl-cdn.alpinelinux.org/alpine/edge/community/" >> /etc/apk/repositories
-# RUN apk add telegraf
-# RUN rc-update add telegraf default
-# RUN rc-status
-# RUN telegraf -sample-config -input-filter cpu:mem -output-filter influxdb > telegraf.conf
-# RUN sed -i -e 's/hostname = ""/hostname = "phpmyadmin"/g' /etc/telegraf.conf
-# RUN sed -i -e 's/# urls = \["http:\/\/127.0.0.1:8086"\]/urls = \["http:\/\/influxdb_test:8086"\]/g' /etc/telegraf.conf
-
 COPY srcs/init.sh /
+
+COPY /srcs/telegraf.conf /etc/telegraf.conf
 
 EXPOSE 5000
 

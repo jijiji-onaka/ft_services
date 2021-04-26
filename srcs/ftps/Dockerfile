@@ -1,8 +1,8 @@
 FROM alpine:3.12
 
-RUN apk update \
-&& apk add vsftpd openssl --no-cache
-RUN apk --no-cache add vsftpd
+RUN echo "https://dl-cdn.alpinelinux.org/alpine/edge/community/" >> /etc/apk/repositories \
+&& apk update \
+&& apk add vsftpd openssl telegraf --no-cache
 
 RUN mkdir -p /etc/vsftpd/ssl \
 && openssl genrsa -out /etc/vsftpd/ssl/server.key 2048 \
@@ -12,6 +12,8 @@ RUN mkdir -p /etc/vsftpd/ssl \
 COPY srcs/vsftpd.conf /etc/vsftpd/vsftpd.conf
 
 COPY srcs/init.sh /
+
+COPY /srcs/telegraf.conf /etc/telegraf.conf
 
 EXPOSE 21 21000-21005
 

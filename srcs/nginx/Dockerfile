@@ -1,7 +1,7 @@
 FROM alpine:3.12
 
 RUN apk update \
-&& apk add nginx openssl openssh --no-cache
+&& apk add openssl --no-cache
 
 ########### nginx ############
 

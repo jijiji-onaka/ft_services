@@ -1,9 +1,62 @@
+# apiVersion: 1
+
+# datasources:
+#   - name: InfluxDB
+#     type: influxdb
+#     access: proxy
+#     user: grafana
+#     password: grafana
+#     url: http://influxdb:8086
+
 apiVersion: 1
 
 datasources:
-  - name: InfluxDB
+  - name: grafana
     type: influxdb
     access: proxy
-    user: grafana
-    password: grafana
+    database: grafana
     url: http://influxdb:8086
+    user: admin
+    password: admin
+  - name: influxdb
+    type: influxdb
+    access: proxy
+    database: influxdb
+    url: http://influxdb:8086
+    user: admin
+    password: admin
+  - name: mysql
+    type: influxdb
+    access: proxy
+    database: mysql
+    url: http://influxdb:8086
+    user: admin
+    password: admin
+  - name: nginx
+    type: influxdb
+    access: proxy
+    database: nginx
+    url: http://influxdb:8086
+    user: admin
+    password: admin
+  - name: phpmyadmin
+    type: influxdb
+    access: proxy
+    database: phpmyadmin
+    url: http://influxdb:8086
+    user: admin
+    password: admin
+  - name: wordpress
+    type: influxdb
+    access: proxy
+    database: wordpress
+    url: http://influxdb:8086
+    user: admin
+    password: admin
+  - name: ftps
+    type: influxdb
+    access: proxy
+    database: ftps
+    url: http://influxdb:8086
+    user: admin
+    password: admin

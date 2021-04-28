@@ -11,16 +11,20 @@ RUN wget https://dl.grafana.com/oss/release/grafana-7.4.5.linux-amd64.tar.gz \
 && rm grafana-7.4.5.linux-amd64.tar.gz \
 && mv grafana-7.4.5 /etc/grafana \
 && mkdir -p /etc/grafana/ssl \
+&& mkdir -p /var/lib/grafana/dashboards \
 && openssl genrsa -out /etc/grafana/ssl/server.key 2048 \
 && openssl req -new -key /etc/grafana/ssl/server.key -out /etc/grafana/ssl/server.csr -subj "/C=JP/ST=Tokyo/L=/O=/OU=/CN=nginx-service" \
 && openssl x509 -days 3650 -req -signkey /etc/grafana/ssl/server.key -in /etc/grafana/ssl/server.csr -out /etc/grafana/ssl/server.crt
-COPY srcs/defaults.ini /etc/grafana/conf/defaults.ini
+COPY ./srcs/defaults.ini /etc/grafana/conf/defaults.ini
+COPY ./srcs/datasources /etc/grafana/conf/provisioning/datasources
+COPY ./srcs/dashboards /etc/grafana/conf/provisioning/dashboards
 
 ################################
 
-COPY srcs/init.sh /
+COPY ./srcs/init.sh /
 
-COPY /srcs/telegraf.conf /etc/telegraf.conf
+COPY ./srcs/telegraf.conf /etc/telegraf.conf
+
 
 EXPOSE 3000
 

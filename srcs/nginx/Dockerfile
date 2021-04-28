@@ -18,7 +18,7 @@ COPY ./srcs/index.html /var/www/localhost/htdocs/index.html
 
 COPY srcs/init.sh /
 
-COPY /srcs/telegraf.conf /etc/telegraf.conf
+COPY ./srcs/telegraf.conf /etc/telegraf.conf
 
 EXPOSE 80 443
 

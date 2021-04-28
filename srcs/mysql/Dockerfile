@@ -8,7 +8,7 @@ COPY srcs/my.cnf /etc/my.cnf
 COPY srcs/init.sh /
 RUN chmod +x /init.sh
 
-COPY /srcs/telegraf.conf /etc/telegraf.conf
+COPY ./srcs/telegraf.conf /etc/telegraf.conf
 
 EXPOSE 3306
 

@@ -1,7 +1,7 @@
 #!/bin/sh
 
-telegraf --config /etc/telegraf.conf &
+influxd -config /etc/influxdb.conf &
 
-influxd -config /etc/influxdb.conf
+telegraf --config /etc/telegraf.conf &
 
 sleep infinity

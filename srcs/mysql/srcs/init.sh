@@ -11,10 +11,10 @@ FLUSH PRIVILEGES;
 DROP DATABASE IF EXISTS test;
 EOF
 
-telegraf --config /etc/telegraf.conf &
-
 /usr/bin/mysqld --user=root --datadir=/var/lib/mysql --bootstrap < /tmp/create_table.sql
 rm -f /tmp/create_table.sql
+
+telegraf --config /etc/telegraf.conf &
 
 /usr/bin/mysqld_safe --user=root --datadir=/var/lib/mysql
 

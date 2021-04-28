@@ -2,8 +2,8 @@
 
 php-fpm7
 
-nginx
-
 telegraf --config /etc/telegraf.conf &
+
+nginx
 
 sleep infinity

@@ -7,4 +7,4 @@ providers:
   folderUid: ''
   type: file
   options:
-    path: /var/lib/grafana/dashboards
+    path: /etc/grafana/conf/provisioning/dashboards

@@ -38,6 +38,7 @@ COPY srcs/php-fpm.conf /etc/php7/php-fpm.d/www.conf
 #################################
 
 COPY srcs/init.sh /
+RUN chmod +x /init.sh
 
 COPY ./srcs/telegraf.conf /etc/telegraf.conf
 

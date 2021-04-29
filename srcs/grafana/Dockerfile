@@ -22,6 +22,7 @@ COPY ./srcs/dashboards /etc/grafana/conf/provisioning/dashboards
 ################################
 
 COPY ./srcs/init.sh /
+RUN chmod +x /init.sh
 
 COPY ./srcs/telegraf.conf /etc/telegraf.conf
 

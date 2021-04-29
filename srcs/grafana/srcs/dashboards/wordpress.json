@@ -15,7 +15,6 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 4,
   "links": [],
   "panels": [
     {
@@ -23,7 +22,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "InfluxDB",
+      "datasource": "ftps",
       "fieldConfig": {
         "defaults": {
           "custom": {}
@@ -35,7 +34,7 @@
       "gridPos": {
         "h": 9,
         "w": 12,
-        "x": 0,
+        "x": 6,
         "y": 0
       },
       "hiddenSeries": false,
@@ -52,8 +51,11 @@
       "lines": true,
       "linewidth": 1,
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.4.5",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -80,7 +82,7 @@
           "measurement": "cpu",
           "orderByTime": "ASC",
           "policy": "default",
-          "refId": "wordpress",
+          "refId": "ftps",
           "resultFormat": "time_series",
           "select": [
             [
@@ -106,7 +108,7 @@
               "condition": "AND",
               "key": "host",
               "operator": "=",
-              "value": "wordpress"
+              "value": "ftps"
             }
           ]
         }
@@ -115,7 +117,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "wordpress",
+      "title": "ftps",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -153,7 +155,7 @@
       }
     }
   ],
-  "schemaVersion": 26,
+  "schemaVersion": 27,
   "style": "dark",
   "tags": [],
   "templating": {
@@ -166,6 +168,6 @@
   "timepicker": {},
   "timezone": "",
   "title": "wordpress",
-  "uid": "xmq4czczj",
+  "uid": "5Vij!rDHH",
   "version": 1
 }

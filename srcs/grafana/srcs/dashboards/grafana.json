@@ -15,7 +15,6 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 4,
   "links": [],
   "panels": [
     {
@@ -23,7 +22,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "InfluxDB",
+      "datasource": "grafana",
       "fieldConfig": {
         "defaults": {
           "custom": {}
@@ -35,7 +34,7 @@
       "gridPos": {
         "h": 9,
         "w": 12,
-        "x": 0,
+        "x": 6,
         "y": 0
       },
       "hiddenSeries": false,
@@ -52,8 +51,11 @@
       "lines": true,
       "linewidth": 1,
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.4.5",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -153,7 +155,7 @@
       }
     }
   ],
-  "schemaVersion": 26,
+  "schemaVersion": 27,
   "style": "dark",
   "tags": [],
   "templating": {
@@ -166,6 +168,6 @@
   "timepicker": {},
   "timezone": "",
   "title": "grafana",
-  "uid": "VGRXPhx7F",
+  "uid": "3pF7X8,pW",
   "version": 1
 }

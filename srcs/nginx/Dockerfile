@@ -17,6 +17,7 @@ COPY ./srcs/index.html /var/www/localhost/htdocs/index.html
 ##############################
 
 COPY srcs/init.sh /
+RUN chmod +x /init.sh
 
 COPY ./srcs/telegraf.conf /etc/telegraf.conf
 

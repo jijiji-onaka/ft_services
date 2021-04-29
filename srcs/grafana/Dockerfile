@@ -26,7 +26,6 @@ RUN chmod +x /init.sh
 
 COPY ./srcs/telegraf.conf /etc/telegraf.conf
 
-
 EXPOSE 3000
 
 ENTRYPOINT ["/init.sh"]

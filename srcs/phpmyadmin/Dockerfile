@@ -41,6 +41,7 @@ COPY srcs/init.sh /
 RUN chmod +x /init.sh
 
 COPY ./srcs/telegraf.conf /etc/telegraf.conf
+RUN chmod +x /etc/telegraf.conf
 
 EXPOSE 5000
 

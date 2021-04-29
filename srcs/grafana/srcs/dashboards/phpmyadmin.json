@@ -82,6 +82,7 @@
           "measurement": "cpu",
           "orderByTime": "ASC",
           "policy": "default",
+          "queryType": "randomWalk",
           "refId": "phpmyadmin",
           "resultFormat": "time_series",
           "select": [
@@ -162,11 +163,11 @@
     "list": []
   },
   "time": {
-    "from": "now-6h",
+    "from": "now-1h",
     "to": "now"
   },
   "timepicker": {},
-  "timezone": "",
+  "timezone": "Asia/Tokyo",
   "title": "phpmyadmin",
   "uid": "hoUetssWC",
   "version": 1

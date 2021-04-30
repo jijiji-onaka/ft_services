@@ -17,6 +17,12 @@ spec:
       - name: phpmyadmin
         image: tjinichi/phpmyadmin:000
         imagePullPolicy: Never
+        livenessProbe:
+          exec:
+            command: ["/healthcheck.sh"]
+          initialDelaySeconds: 60
+          periodSeconds: 5
+          timeoutSeconds: 10
         ports:
         - name: http
           containerPort: 80

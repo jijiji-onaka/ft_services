@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   name: ftps
 spec:
+  replicas: 1
   selector:
     matchLabels:
       component: ftps
@@ -15,6 +16,12 @@ spec:
       - name: ftps
         image: tjinichi/ftps:000
         imagePullPolicy: Never
+        livenessProbe:
+          exec:
+            command: ["/healthcheck.sh"]
+          initialDelaySeconds: 60
+          periodSeconds: 5
+          timeoutSeconds: 10
         ports:
         - name: ftps
           containerPort: 21

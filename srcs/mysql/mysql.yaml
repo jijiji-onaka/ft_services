@@ -16,6 +16,7 @@ kind: Deployment
 metadata:
   name: mysql
 spec:
+  replicas: 1
   selector:
     matchLabels:
       component: mysql
@@ -32,6 +33,12 @@ spec:
       - name: mysql
         image: tjinichi/mysql:000
         imagePullPolicy: Never
+        livenessProbe:
+          exec:
+            command: ["/healthcheck.sh"]
+          initialDelaySeconds: 60
+          periodSeconds: 5
+          timeoutSeconds: 10
         ports:
         - containerPort: 3306
         volumeMounts:

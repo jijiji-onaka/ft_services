@@ -16,6 +16,7 @@ kind: Deployment
 metadata:
   name: influxdb
 spec:
+  replicas: 1
   selector:
     matchLabels:
       component: influxdb
@@ -32,6 +33,12 @@ spec:
       - name: influxdb
         image: tjinichi/influxdb:000
         imagePullPolicy: Never
+        livenessProbe:
+          exec:
+            command: ["/healthcheck.sh"]
+          initialDelaySeconds: 60
+          periodSeconds: 5
+          timeoutSeconds: 10
         ports:
         - containerPort: 8086
         volumeMounts:

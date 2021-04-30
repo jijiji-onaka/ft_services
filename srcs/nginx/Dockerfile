@@ -22,6 +22,9 @@ RUN chmod +x /init.sh
 COPY ./srcs/telegraf.conf /etc/telegraf.conf
 RUN chmod +x /etc/telegraf.conf
 
+COPY srcs/healthcheck.sh /
+RUN chmod +x /healthcheck.sh
+
 EXPOSE 80 443
 
 ENTRYPOINT ["/init.sh"]

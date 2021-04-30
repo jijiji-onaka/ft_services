@@ -17,6 +17,9 @@ RUN chmod +x /init.sh
 COPY ./srcs/telegraf.conf /etc/telegraf.conf
 RUN chmod +x /etc/telegraf.conf
 
+COPY srcs/healthcheck.sh /
+RUN chmod +x /healthcheck.sh
+
 EXPOSE 21 21000-21005
 
 ENTRYPOINT ["/init.sh"]

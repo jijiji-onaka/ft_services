@@ -36,6 +36,15 @@ COPY srcs/php-fpm.conf /etc/php7/php-fpm.d/www.conf
 
 #################################
 
+########### wp-cli ##############
+
+RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
+&& chmod +x wp-cli.phar \
+&& mv wp-cli.phar /usr/local/bin/wp \
+&& wp --info
+
+#################################
+
 COPY srcs/init.sh /
 RUN chmod +x /init.sh
 

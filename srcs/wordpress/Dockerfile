@@ -3,7 +3,7 @@ FROM alpine:3.12
 RUN echo "https://dl-cdn.alpinelinux.org/alpine/edge/community/" >> /etc/apk/repositories \
 && apk update \
 && apk add nginx wget curl openssl openssh mysql-client \
-    php7 php7-fpm php7-mysqli php7-mbstring php7-json php7-session \
+    php7 php7-fpm php7-mysqli php7-mbstring php7-json php7-session php7-phar \
     telegraf --no-cache
 
 ########### nginx ############

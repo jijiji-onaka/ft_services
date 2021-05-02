@@ -1,9 +1,5 @@
 #!/bin/sh
 
-php-fpm7
-
-telegraf --config /etc/telegraf.conf &
-
 # WordPressセットアップ admin_user,admin_passwordは管理画面のログインID,PW
 wp core install \
 --url=https://192.168.49.50:5050 \
@@ -27,6 +23,10 @@ wp user create nobi nobi@a.com \
 wp user create dora dora@a.com \
 	--role=author \
 	--user_pass=dora
+
+telegraf --config /etc/telegraf.conf &
+
+php-fpm7
 
 nginx
 

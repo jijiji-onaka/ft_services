@@ -15,6 +15,8 @@ wp core install \
 --admin_password=admin \
 --admin_email=admin@a.com
 
+wp theme activate twentytwenty
+
 # タイムゾーンと日時表記
 wp option update timezone_string 'Asia/Tokyo' --allow-root
 wp option update date_format 'Y-m-d' --allow-root

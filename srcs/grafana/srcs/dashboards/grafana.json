@@ -90,7 +90,9 @@
       "linewidth": 1,
       "nullPointMode": "null",
       "options": {
-        "alertThreshold": true
+        "alertThreshold": true,
+        "displayMode": "list",
+        "placement": "bottom"
       },
       "percentage": false,
       "pluginVersion": "7.4.5",
@@ -201,7 +203,7 @@
     "list": []
   },
   "time": {
-    "from": "now-1h",
+    "from": "now-30m",
     "to": "now"
   },
   "timepicker": {},

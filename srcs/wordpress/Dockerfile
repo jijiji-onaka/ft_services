@@ -20,6 +20,8 @@ COPY ./srcs/index.html /var/www/localhost/htdocs/index.html
 
 ########### wordpress ############
 
+# 5.7
+
 RUN cd /tmp \
 && wget http://wordpress.org/latest.tar.gz && tar -xzvf latest.tar.gz && rm latest.tar.gz \
 && mv wordpress /var/www/localhost/htdocs/wordpress \

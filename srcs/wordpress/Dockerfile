@@ -18,18 +18,18 @@ COPY ./srcs/index.html /var/www/localhost/htdocs/index.html
 
 ##############################
 
-########### wordpress ############
+# ########### wordpress ############
 
-# 5.7
+# # 5.7
 
-RUN cd /tmp \
-&& wget http://wordpress.org/latest.tar.gz && tar -xzvf latest.tar.gz && rm latest.tar.gz \
-&& mv wordpress /var/www/localhost/htdocs/wordpress \
-&& chown -R nginx:nginx /var/www/localhost/htdocs/wordpress/
-COPY ./srcs/wp-config.php /var/www/localhost/htdocs/wordpress/wp-config.php
-RUN chown -R nginx:nginx  /var/www/localhost/htdocs/wordpress/wp-config.php
+# RUN cd /tmp \
+# && wget http://wordpress.org/latest.tar.gz && tar -xzvf latest.tar.gz && rm latest.tar.gz \
+# && mv wordpress /var/www/localhost/htdocs/wordpress \
+# && chown -R nginx:nginx /var/www/localhost/htdocs/wordpress/
+# COPY ./srcs/wp-config.php /var/www/localhost/htdocs/wordpress/wp-config.php
+# RUN chown -R nginx:nginx  /var/www/localhost/htdocs/wordpress/wp-config.php
 
-#################################
+# #################################
 
 ########### php7-fpm ############
 

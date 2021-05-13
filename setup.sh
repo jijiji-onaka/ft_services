@@ -21,37 +21,37 @@ kubectl create secret generic -n metallb-system memberlist --from-literal=secret
 kubectl apply -f ./srcs/metallb/metallb-system.yaml > /dev/null
 
 eval $(minikube docker-env)
-echo "${COLOR_MSG} [ docker build ] ${COLOR_RESET}\n"
-echo "${COLOR_MSG} building nginx ... ${COLOR_RESET}\n"
+printf "${COLOR_MSG} [ docker build ] ${COLOR_RESET}\n"
+printf "${COLOR_MSG} building nginx ... ${COLOR_RESET}\n"
 docker build -t tjinichi/nginx:000 ./srcs/nginx > /dev/null
-echo "${COLOR_MSG} building mysql ... ${COLOR_RESET}\n"
+printf "${COLOR_MSG} building mysql ... ${COLOR_RESET}\n"
 docker build -t tjinichi/mysql:000 ./srcs/mysql > /dev/null
-echo "${COLOR_MSG} building phpmyadmin ... ${COLOR_RESET}\n"
+printf "${COLOR_MSG} building phpmyadmin ... ${COLOR_RESET}\n"
 docker build -t tjinichi/phpmyadmin:000 ./srcs/phpmyadmin > /dev/null
-echo "${COLOR_MSG} building wordpress ... ${COLOR_RESET}\n"
+printf "${COLOR_MSG} building wordpress ... ${COLOR_RESET}\n"
 docker build -t tjinichi/wordpress:000 ./srcs/wordpress > /dev/null
-echo "${COLOR_MSG} building ftps ... ${COLOR_RESET}\n"
+printf "${COLOR_MSG} building ftps ... ${COLOR_RESET}\n"
 docker build -t tjinichi/ftps:000 ./srcs/ftps > /dev/null
-echo "${COLOR_MSG} building influxdb ... ${COLOR_RESET}\n"
+printf "${COLOR_MSG} building influxdb ... ${COLOR_RESET}\n"
 docker build -t tjinichi/influxdb:000 ./srcs/influxdb > /dev/null
-echo "${COLOR_MSG} building grafana ... ${COLOR_RESET}\n"
+printf "${COLOR_MSG} building grafana ... ${COLOR_RESET}\n"
 docker build -t tjinichi/grafana:000 ./srcs/grafana > /dev/null
 
 
-echo "${COLOR_MSG} [ kubectl apply ] ${COLOR_RESET}\n"
-echo "${COLOR_MSG} apply nginx ... ${COLOR_RESET}\n"
+printf "${COLOR_MSG} [ kubectl apply ] ${COLOR_RESET}\n"
+printf "${COLOR_MSG} apply nginx ... ${COLOR_RESET}\n"
 kubectl apply -f ./srcs/nginx/nginx.yaml > /dev/null
-echo "${COLOR_MSG} apply mysql ... ${COLOR_RESET}\n"
+printf "${COLOR_MSG} apply mysql ... ${COLOR_RESET}\n"
 kubectl apply -f ./srcs/mysql/mysql.yaml > /dev/null
-echo "${COLOR_MSG} apply phpmyadmin ... ${COLOR_RESET}\n"
+printf "${COLOR_MSG} apply phpmyadmin ... ${COLOR_RESET}\n"
 kubectl apply -f ./srcs/phpmyadmin/phpmyadmin.yaml > /dev/null
-echo "${COLOR_MSG} apply wordpress ... ${COLOR_RESET}\n"
+printf "${COLOR_MSG} apply wordpress ... ${COLOR_RESET}\n"
 kubectl apply -f ./srcs/wordpress/wordpress.yaml > /dev/null
-echo "${COLOR_MSG} apply ftps ... ${COLOR_RESET}\n"
+printf "${COLOR_MSG} apply ftps ... ${COLOR_RESET}\n"
 kubectl apply -f srcs/ftps/ftps.yaml > /dev/null
-echo "${COLOR_MSG} apply influxdb ... ${COLOR_RESET}\n"
+printf "${COLOR_MSG} apply influxdb ... ${COLOR_RESET}\n"
 kubectl apply -f srcs/influxdb/influxdb.yaml > /dev/null
-echo "${COLOR_MSG} apply grafana ... ${COLOR_RESET}\n"
+printf "${COLOR_MSG} apply grafana ... ${COLOR_RESET}\n"
 kubectl apply -f srcs/grafana/grafana.yaml > /dev/null
 # kubectl apply -f ./srcs/nginx/nginx-replicaset.yaml
 

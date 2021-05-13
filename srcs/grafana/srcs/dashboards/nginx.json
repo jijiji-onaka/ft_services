@@ -15,7 +15,6 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 8,
   "links": [],
   "panels": [
     {
@@ -120,12 +119,6 @@
             ]
           ],
           "tags": []
-        },
-        {
-          "datasource": "__expr__",
-          "hide": false,
-          "refId": "B",
-          "type": "math"
         }
       ],
       "timeFrom": null,
@@ -147,6 +140,6 @@
   "timepicker": {},
   "timezone": "Asia/Tokyo",
   "title": "nginx",
-  "uid": "kyngX1h3O",
+  "uid": "HaPj57pLF",
   "version": 1
 }

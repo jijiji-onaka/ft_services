@@ -15,54 +15,74 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
+  "id": 8,
   "links": [],
   "panels": [
     {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
       "datasource": "phpmyadmin",
       "fieldConfig": {
         "defaults": {
-          "custom": {}
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "graph": false,
+              "legend": false,
+              "tooltip": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": true
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
         },
         "overrides": []
       },
-      "fill": 1,
-      "fillGradient": 0,
       "gridPos": {
         "h": 9,
         "w": 12,
-        "x": 6,
+        "x": 0,
         "y": 0
       },
-      "hiddenSeries": false,
       "id": 2,
-      "legend": {
-        "avg": false,
-        "current": false,
-        "max": false,
-        "min": false,
-        "show": true,
-        "total": false,
-        "values": false
-      },
-      "lines": true,
-      "linewidth": 1,
-      "nullPointMode": "null",
       "options": {
-        "alertThreshold": true
+        "graph": {},
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltipOptions": {
+          "mode": "single"
+        }
       },
-      "percentage": false,
       "pluginVersion": "7.4.5",
-      "pointradius": 2,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
       "targets": [
         {
           "groupBy": [
@@ -83,13 +103,13 @@
           "orderByTime": "ASC",
           "policy": "default",
           "queryType": "randomWalk",
-          "refId": "phpmyadmin",
+          "refId": "A",
           "resultFormat": "time_series",
           "select": [
             [
               {
                 "params": [
-                  "usage_idle"
+                  "usage_user"
                 ],
                 "type": "field"
               },
@@ -99,61 +119,19 @@
               }
             ]
           ],
-          "tags": [
-            {
-              "key": "cpu",
-              "operator": "=",
-              "value": "cpu-total"
-            },
-            {
-              "condition": "AND",
-              "key": "host",
-              "operator": "=",
-              "value": "phpmyadmin"
-            }
-          ]
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "phpmyadmin",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
+          "tags": []
         },
         {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
+          "datasource": "__expr__",
+          "hide": false,
+          "refId": "B",
+          "type": "math"
         }
       ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Panel Title",
+      "type": "timeseries"
     }
   ],
   "schemaVersion": 27,
@@ -163,12 +141,12 @@
     "list": []
   },
   "time": {
-    "from": "now-1h",
+    "from": "now-30m",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "Asia/Tokyo",
   "title": "phpmyadmin",
-  "uid": "hoUetssWC",
+  "uid": "k0O3bMQ9u",
   "version": 1
 }

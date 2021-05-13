@@ -12,11 +12,10 @@
       }
     ]
   },
-  "description": "grafana dashboard",
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": null,
+  "id": 8,
   "links": [],
   "panels": [
     {
@@ -67,11 +66,11 @@
       },
       "gridPos": {
         "h": 9,
-        "w": 13,
+        "w": 12,
         "x": 0,
         "y": 0
       },
-      "id": 4,
+      "id": 2,
       "options": {
         "graph": {},
         "legend": {
@@ -86,7 +85,6 @@
       "pluginVersion": "7.4.5",
       "targets": [
         {
-          "alias": "memory",
           "groupBy": [
             {
               "params": [
@@ -101,7 +99,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "mem",
+          "measurement": "cpu",
           "orderByTime": "ASC",
           "policy": "default",
           "queryType": "randomWalk",
@@ -111,7 +109,7 @@
             [
               {
                 "params": [
-                  "used_percent"
+                  "usage_user"
                 ],
                 "type": "field"
               },
@@ -122,9 +120,17 @@
             ]
           ],
           "tags": []
+        },
+        {
+          "datasource": "__expr__",
+          "hide": false,
+          "refId": "B",
+          "type": "math"
         }
       ],
-      "title": "Memory",
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Panel Title",
       "type": "timeseries"
     }
   ],
@@ -139,8 +145,8 @@
     "to": "now"
   },
   "timepicker": {},
-  "timezone": "",
+  "timezone": "Asia/Tokyo",
   "title": "grafana",
   "uid": "AI1Cs9HpH",
-  "version": 0
+  "version": 1
 }

@@ -10,7 +10,7 @@
 # sudo minikube start --vm-driver=none --extra-config=apiserver.service-node-port-range=1-65535
 
 COLOR_1="\033[38;5;44m"
-COLOR_2="\033[38;5;37m"
+COLOR_2="\033[38;5;48m"
 COLOR_RESET="\033[0m"
 
 minikube start driver=docker

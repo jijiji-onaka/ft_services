@@ -15,11 +15,10 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 8,
   "links": [],
   "panels": [
     {
-      "datasource": "infulxdb",
+      "datasource": "influxdb",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -120,12 +119,6 @@
             ]
           ],
           "tags": []
-        },
-        {
-          "datasource": "__expr__",
-          "hide": false,
-          "refId": "B",
-          "type": "math"
         }
       ],
       "timeFrom": null,
@@ -146,7 +139,7 @@
   },
   "timepicker": {},
   "timezone": "Asia/Tokyo",
-  "title": "infulxdb",
-  "uid": "DMxYvFYYs",
+  "title": "influxdb",
+  "uid": "MMMjqp2if",
   "version": 1
 }

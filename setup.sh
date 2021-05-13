@@ -11,12 +11,12 @@
 
 COLOR_1="\033[38;5;44m"
 COLOR_2="\033[38;5;48m"
-COLOR_3="\033[38;5;129m"
+COLOR_3="\033[38;5;160m"
 COLOR_RESET="\033[0m"
 
 printf "${COLOR_3} [ minikube ] ${COLOR_RESET}\n"
 printf "${COLOR_3} minikube start ... ${COLOR_RESET}\n"
-minikube start driver=docker
+minikube start driver=docker > /dev/null
 
 
 eval $(minikube docker-env)

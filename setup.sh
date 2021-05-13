@@ -11,18 +11,16 @@
 
 COLOR_1="\033[38;5;44m"
 COLOR_2="\033[38;5;48m"
+COLOR_3="\033[38;5;129m"
 COLOR_RESET="\033[0m"
 
+printf "${COLOR_3} [ minikube ] ${COLOR_RESET}\n"
+printf "${COLOR_3} minikube start ... ${COLOR_RESET}\n"
 minikube start driver=docker
 
-# metalLBの起動
-kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.3/manifests/namespace.yaml > /dev/null
-kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.3/manifests/metallb.yaml > /dev/null
-kubectl create secret generic -n metallb-system memberlist --from-literal=secretkey="$(openssl rand -base64 128)" > /dev/null
-kubectl apply -f ./srcs/metallb/metallb-system.yaml > /dev/null
 
 eval $(minikube docker-env)
-printf "${COLOR_1} [ docker build ] ${COLOR_RESET}\n"
+printf "${COLOR_1} [ Docker ] ${COLOR_RESET}\n"
 printf "${COLOR_1} building nginx ... ${COLOR_RESET}\n"
 docker build -t tjinichi/nginx:000 ./srcs/nginx > /dev/null
 printf "${COLOR_1} building mysql ... ${COLOR_RESET}\n"
@@ -38,8 +36,14 @@ docker build -t tjinichi/influxdb:000 ./srcs/influxdb > /dev/null
 printf "${COLOR_1} building grafana ... ${COLOR_RESET}\n"
 docker build -t tjinichi/grafana:000 ./srcs/grafana > /dev/null
 
-
+# metalLBの起動
 printf "${COLOR_2} [ kubectl apply ] ${COLOR_RESET}\n"
+printf "${COLOR_2} apply metallb ... ${COLOR_RESET}\n"
+kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.3/manifests/namespace.yaml > /dev/null
+kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.3/manifests/metallb.yaml > /dev/null
+kubectl create secret generic -n metallb-system memberlist --from-literal=secretkey="$(openssl rand -base64 128)" > /dev/null
+kubectl apply -f ./srcs/metallb/metallb-system.yaml > /dev/null
+
 printf "${COLOR_2} apply nginx ... ${COLOR_RESET}\n"
 kubectl apply -f ./srcs/nginx/nginx.yaml > /dev/null
 printf "${COLOR_2} apply mysql ... ${COLOR_RESET}\n"

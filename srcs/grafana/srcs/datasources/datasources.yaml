@@ -1,13 +1,3 @@
-# apiVersion: 1
-
-# datasources:
-#   - name: InfluxDB
-#     type: influxdb
-#     access: proxy
-#     user: grafana
-#     password: grafana
-#     url: http://influxdb:8086
-
 apiVersion: 1
 
 datasources:

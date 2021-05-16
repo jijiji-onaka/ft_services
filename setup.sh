@@ -1,14 +1,4 @@
 #!/bin/bash
-
-# kubeコマンドとminikubeコマンド実行時の権限変更
-# chmod -R 777 ~/.minikube
-# chmod -R 777 ~/.kube
-
-# eval export DOCKER_TLS_VERIFY="";export DOCKER_HOST="";export DOCKER_CERT_PATH="";export MINIKUBE_ACTIVE_DOCKERD=""
-
-# minikube stop
-# sudo minikube start --vm-driver=none --extra-config=apiserver.service-node-port-range=1-65535
-
 COLOR_1="\033[38;5;44m"
 COLOR_2="\033[38;5;48m"
 COLOR_RESET="\033[0m"
@@ -54,19 +44,7 @@ printf "${COLOR_2} apply influxdb ... ${COLOR_RESET}\n"
 kubectl apply -f srcs/influxdb/influxdb.yaml > /dev/null
 printf "${COLOR_2} apply grafana ... ${COLOR_RESET}\n"
 kubectl apply -f srcs/grafana/grafana.yaml > /dev/null
-# kubectl apply -f ./srcs/nginx/nginx-replicaset.yaml
 
 
 #ダッシュボードを起動
 # sudo minikube dashboard
-
-
-
-
-
-
-
-
-# minikube delete && bash setup.sh
-
-# kubectl delete -f srcs/nginx/nginx.yaml

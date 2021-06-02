@@ -1,2 +1,3 @@
 # ft_services
-aaa
+
+kubernetesを使った42の課題です。

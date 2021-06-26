@@ -1,4 +1,6 @@
 # ft_services
 
-kubernetesを用いて、7つのpod(nginx, wordpress, phpmyadmin, mysql, ftps, grafana, InfluxDB)を立てました。
+The project consists of implementing an infrastructure with　different services using kubernetes.
 
+
+<img width="1167" alt="services" src="https://user-images.githubusercontent.com/60336548/123518483-15672900-d6e1-11eb-9a98-a366fa89525d.png">

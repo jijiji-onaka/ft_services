@@ -1,3 +1,4 @@
 # ft_services
 
-kubernetesを使った42の課題です。
+kubernetesを用いて、7つのpod(nginx, wordpress, phpmyadmin, mysql, ftps, grafana, InfluxDB)を立てました。
+
